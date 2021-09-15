@@ -208,7 +208,10 @@
   }
 }
 
-
+.nodes-panel-title{
+  color: white;
+  text-align: center;
+}
 
 .props-panel {
   height: 100%;
@@ -328,6 +331,7 @@
   margin: 5px;
   padding: 5px;
 }
+
 .selected-node {
   background: #eee;
   margin: 5px;
@@ -344,8 +348,9 @@
 }
 
 .nodes-panel {
+  height: 500px;
   flex-direction: column;
-  background-color: transparent;
+  background-color: #202020; // transparent;
   padding: 1.5rem;
 
   .node-wrapper {
@@ -367,6 +372,7 @@
     line-height: 10px;
   }
 }
+
 // Diagram SASS
 .port{
   width: 15px;
@@ -380,7 +386,7 @@
 .basic-node {
   background-color: rgb(30,30,30);
   border-radius: 5px;
-  font-family:Arial;
+  font-family: Arial;
   color: white;
   border: solid 2px black;
   overflow: visible;
