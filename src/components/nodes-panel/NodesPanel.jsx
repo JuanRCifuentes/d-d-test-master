@@ -7,7 +7,7 @@ class NodesPanel extends React.Component {
             <div className="panel-wrapper">
                 <div className="nodes-panel">
                     <div className='nodes-panel-title'>
-                        <h1>Hello World!</h1>
+                        <h1>Text</h1>
                     </div>
                     <hr
                         style={{
@@ -16,10 +16,16 @@ class NodesPanel extends React.Component {
                     />
                     <br/>
                     <div className='node-wrapper'>
-                        <Node type='imagenode' color='transparent' />
+                            <Node type='text' color='transparent' />
                     </div>
                     <div className='node-wrapper'>
-                        <Node type='imagenode' color='transparent' />
+                        <Node type='rds' color='transparent' />
+                    </div>
+                    <div className='node-wrapper'>
+                        <Node type='ec2' color='transparent' />
+                    </div>
+                    <div className='node-wrapper'>
+                        <Node type='elastic' color='transparent' />
                     </div>
                     {/* Other nodes */}
                 </div>

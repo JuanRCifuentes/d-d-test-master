@@ -363,6 +363,11 @@
 
     .basic-node {
       width: 120px;
+
+      .editable-text-box {
+        margin: auto;
+        font-size: 22px;
+      }
     }
   }
 }
@@ -398,6 +403,13 @@
   font-size: 12px;
   // box-shadow: 0 0 10px rgba(black,0.5);
   width: 120px;
+
+  .editable-text-box {
+    // margin: auto;
+    font-size: 22px;
+    margin-top: 25px;
+    margin-left: 20px;
+  }
 
   .logo {
     width: 76px;

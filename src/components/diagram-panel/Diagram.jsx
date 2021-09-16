@@ -11,6 +11,7 @@ import { ImageNodeModel } from '../nodes/imagenode/ImageNodeModel';
 let diagramModel = new RJD.DiagramModel();
 
 const target = {
+    // Creates dropped node !
     drop(props, monitor) {
         const {x: pageX, y: pageY} = monitor.getSourceClientOffset();
         const {left = 0, top = 0} = engine.canvas.getBoundingClientRect();
@@ -21,8 +22,10 @@ const target = {
 
         let node;
 
-        if (item.type === 'imagenode') {
-            node = new ImageNodeModel('Image Node', 'transparent', {
+        const nameList = {'rds': 'RDS', 'ec2': 'EC2', 'elastic': 'Elastic Load Balancing', 'text': 'Text'};
+
+        if (item.type in nameList) {
+            node = new ImageNodeModel(nameList[item.type], 'transparent', {
                 title: '',
                 body: '',
                 video: {

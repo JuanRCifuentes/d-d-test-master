@@ -44,31 +44,47 @@ export class ImageNodeWidget extends React.Component {
       style.background = color || displayColor;
     }
 
+    // Images for AWS service
+    let imagesSrcList = {
+      'RDS': 'https://cdn.worldvectorlogo.com/logos/aws-rds.svg',
+      'EC2': 'https://cdn.worldvectorlogo.com/logos/aws-ec2.svg',
+      'Elastic Load Balancing': 'https://cdn.worldvectorlogo.com/logos/aws-elastic-load-balancing.svg',
+    }
+
+    var srcVal = node.name in imagesSrcList ? imagesSrcList[node.name] : 'https://s3.amazonaws.com/www.wok.treble.ai/treble.png';
+
     return (
       <div className='basic-node' style={style}>
-
         <div className='close-icon'>
           {!displayOnly ? <div className='fa fa-close' onClick={this.onRemove.bind(this)} /> : null}
         </div>
-
         <div className='title'>
           {!displayOnly ? 
             <div className='in'>
               {this.getInPort()}
             </div>
           : null}
-          <img className='logo' src='https://cdn.worldvectorlogo.com/logos/aws-elastic-load-balancing.svg' />
+          {node.name === 'Text' ? (
+            <div className='editable-text-box'>
+              <h1 className='editable-text'>Some text</h1>
+            </div>
+          ) : (
+          <img className='logo' src={srcVal} />)
+          }
           {!displayOnly ? 
             <div className='out'>
               {this.getOutPort()}
             </div>
           : null}
         </div>
-        <div className='title'>
+        {
+          node.name === 'Text' ? <div/>: <div className='title'>
           <div className='name'>
-            Elastic Load Balancing
+            {node.name}
           </div>
         </div>
+        }
+        
       </div>
     );
   }
