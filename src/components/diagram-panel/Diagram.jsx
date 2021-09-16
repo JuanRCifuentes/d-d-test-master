@@ -22,7 +22,7 @@ const target = {
         let node;
 
         if (item.type === 'imagenode') {
-            node = new ImageNodeModel('Image Node', 'rgb(124, 28, 120)', {
+            node = new ImageNodeModel('Image Node', 'transparent', {
                 title: '',
                 body: '',
                 video: {

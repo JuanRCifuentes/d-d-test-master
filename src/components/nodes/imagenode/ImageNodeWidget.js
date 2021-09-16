@@ -46,18 +46,27 @@ export class ImageNodeWidget extends React.Component {
 
     return (
       <div className='basic-node' style={style}>
-        <div className='title'>
-          <div className='name'>
-            image
-          </div>
+
+        <div className='close-icon'>
           {!displayOnly ? <div className='fa fa-close' onClick={this.onRemove.bind(this)} /> : null}
         </div>
-        <div className='ports'>
-          <div className='in'>
-            {this.getInPort()}
-          </div>
-          <div className='out'>
-            {this.getOutPort()}
+
+        <div className='title'>
+          {!displayOnly ? 
+            <div className='in'>
+              {this.getInPort()}
+            </div>
+          : null}
+          <img className='logo' src='https://cdn.worldvectorlogo.com/logos/aws-elastic-load-balancing.svg' />
+          {!displayOnly ? 
+            <div className='out'>
+              {this.getOutPort()}
+            </div>
+          : null}
+        </div>
+        <div className='title'>
+          <div className='name'>
+            Elastic Load Balancing
           </div>
         </div>
       </div>

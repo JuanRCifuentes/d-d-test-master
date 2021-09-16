@@ -16,10 +16,10 @@ class NodesPanel extends React.Component {
                     />
                     <br/>
                     <div className='node-wrapper'>
-                        <Node type='imagenode' color='rgb(238, 238, 238)' />
+                        <Node type='imagenode' color='transparent' />
                     </div>
                     <div className='node-wrapper'>
-                        <Node type='imagenode' color='rgb(238, 238, 238)' />
+                        <Node type='imagenode' color='transparent' />
                     </div>
                     {/* Other nodes */}
                 </div>
