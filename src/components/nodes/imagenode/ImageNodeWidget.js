@@ -3,6 +3,13 @@ import * as RJD from '../../../../lib/main';
 import { ImageNodeModel } from './ImageNodeModel';
 
 export class ImageNodeWidget extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      brand: 'Some text'
+    };
+  }
+
   static defaultProps = {
     node: null,
     color: 'rgb(224, 98, 20)'
@@ -36,6 +43,11 @@ export class ImageNodeWidget extends React.Component {
     return outputNode.getOutPort ? <RJD.DefaultPortLabel model={outputNode.getOutPort()} key='out-port' /> : null;
   }
 
+  onDoubleClickText = () => {
+    let newText = prompt("enter new text", 'change textbox name')
+    newText === "" || newText === null ? newText=this.state.brand : this.setState({brand: newText})
+  }
+
   render() {
     const { node, displayOnly, color: displayColor } = this.props;
     const { name, color } = node;
@@ -55,9 +67,9 @@ export class ImageNodeWidget extends React.Component {
 
     return (
       <div className='basic-node' style={style}>
-        <div className='close-icon'>
+        {node.name === 'Text' ? null : <div className='close-icon'>
           {!displayOnly ? <div className='fa fa-close' onClick={this.onRemove.bind(this)} /> : null}
-        </div>
+        </div>}
         <div className='title'>
           {!displayOnly ? 
             <div className='in'>
@@ -66,7 +78,11 @@ export class ImageNodeWidget extends React.Component {
           : null}
           {node.name === 'Text' ? (
             <div className='editable-text-box'>
-              <h1 className='editable-text'>Some text</h1>
+              <a
+                onDoubleClick={this.onDoubleClickText}
+              >
+                {this.state.brand}
+              </a>
             </div>
           ) : (
           <img className='logo' src={srcVal} />)
