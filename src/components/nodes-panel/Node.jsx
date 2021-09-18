@@ -6,18 +6,10 @@ class Node extends React.Component {
     renderNode() {
         const { type, color } = this.props;
 
-        // TODO: MAKE THIS OK
-        if (type === 'rds') {
-            return <ImageNodeWidget node={{ name: 'RDS' }} color={color} displayOnly/>;
-        }
-        if (type === 'ec2') {
-            return <ImageNodeWidget node={{ name: 'EC2' }} color={color} displayOnly/>;
-        }
-        if (type === 'elastic') {
-            return <ImageNodeWidget node={{ name: 'Elastic Load Balancing' }} color={color} displayOnly/>;
-        }
-        if (type === 'text') {
-            return <ImageNodeWidget node={{ name: 'Text' }} color={color} displayOnly/>;
+        const nameList = {'rds': 'RDS', 'ec2': 'EC2', 'elastic': 'Elastic Load Balancing', 'text': 'Text'};
+
+        if (type in nameList) {
+            return <ImageNodeWidget node={{ name: nameList[type] }} color={color} displayOnly/>;
         }
         
         console.warn('Unknown node type');
