@@ -44,7 +44,7 @@ export class ImageNodeWidget extends React.Component {
   }
 
   onDoubleClickText = () => {
-    let newText = prompt("enter new text", 'change textbox name')
+    let newText = prompt("Enter new text", this.state.brand)
     newText === "" || newText === null ? newText=this.state.brand : this.setState({brand: newText})
   }
 
