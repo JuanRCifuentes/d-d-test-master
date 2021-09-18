@@ -46,6 +46,18 @@ export class ImageNodeWidget extends React.Component {
   onDoubleClickText = () => {
     let newText = prompt("Enter new text", this.state.brand)
     newText === "" || newText === null ? newText=this.state.brand : this.setState({brand: newText})
+    localStorage.setItem(this.props.node.id, newText);
+  }
+
+  componentDidMount(){
+    let message = localStorage.getItem(this.props.node.id)
+    message === "" || message === null ?
+        message = "Some text" :
+        this.setState({brand: localStorage.getItem(this.props.node.id)})
+  }
+
+  metodoQueSeLlama = () => {
+    this.props.node.content.title = this.state.brand;
   }
 
   render() {
@@ -64,6 +76,7 @@ export class ImageNodeWidget extends React.Component {
     }
 
     var srcVal = node.name in imagesSrcList ? imagesSrcList[node.name] : 'https://s3.amazonaws.com/www.wok.treble.ai/treble.png';
+    let nombreDeVariable = this.props.node
 
     return (
       <div className='basic-node' style={style}>
